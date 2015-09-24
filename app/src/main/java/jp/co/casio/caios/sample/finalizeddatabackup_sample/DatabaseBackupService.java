@@ -336,7 +336,7 @@ public class DatabaseBackupService extends IntentService {
             }   // for
 
 
-//จบข้อความ ไม่feed
+//จบข้อความ ไม่feed test
             data.write(0x0d);
             data.write(0x0a);
             data.write(0x0a); //update 17.40 ok
