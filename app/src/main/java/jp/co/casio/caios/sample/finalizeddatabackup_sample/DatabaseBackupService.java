@@ -296,11 +296,17 @@ public class DatabaseBackupService extends IntentService {
 //            data.write(0x1b);
 //            data.write(0x45);
 //            data.write(0x31);
+            data.write(0x1D);// Print double-width
+            data.write(0x21);
+            data.write(0x01);
 
             char[] charConsecNumber = ("#" + strConsecNumber).toCharArray();
             for (int i = 0; i < charConsecNumber.length; i++) {
                 data.write(charConsecNumber[i]);
             }   //for
+            data.write(0x1D);// Print normal
+            data.write(0x21);
+            data.write(0x00);
 
             data.write(0x0d);
             data.write(0x0a);
@@ -330,12 +336,15 @@ public class DatabaseBackupService extends IntentService {
             data.write(0x0a);
 
             //Print Count
+
             char[] charCount = strMyCount.toCharArray();
             for (int i = 0; i < charCount.length; i++) {
                 data.write(charCount[i]);
             }   // for
 
-
+//            data.write(0x1D);// Print normal
+//            data.write(0x21);
+//            data.write(0x0);
 //จบข้อความ ไม่feed test
             data.write(0x0d);
             data.write(0x0a);
